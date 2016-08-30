@@ -5,6 +5,7 @@
  @Date: 2016-08-30
  @Site：http://sentsin.com/layui/laydate
  增加配置项nil 用于清空及选择时的初始值显示
+ 增加clear(Dates.options)回调方法
  */
 
 ;!function(win){
@@ -753,6 +754,7 @@ Dates.events = function(){
     as.oclear = S('#laydate_clear');
     Dates.on(as.oclear, 'click', function(){
         Dates.elem[as.elemv] = Dates.options.nil?Dates.options.nil:'';
+		typeof Dates.options.clear === 'function' && Dates.options.clear(Dates.options); 
         Dates.close();
     });
     
