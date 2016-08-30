@@ -14,6 +14,41 @@ skins是皮肤目录
 ## 简要
 她基于原生JavaScript精心雕琢，兼容了包括IE6在内的所有主流浏览器。她具备优雅的内部代码，良好的性能体验，和完善的皮肤体系，并且完全开源，你可以任意获取开发版源代码，一扫某些传统日期控件的封闭与狭隘。layDate本着资源共享的开发者精神和对网页日历交互无穷的追求，延续了layui一贯的简单与易用。她遵循LGPL协议，您可以免费将她用于任何个人项目。
 
+## 使用方法
+一、核心方法：laydate(options);
+    options是一个对象，它包含了以下key: '默认值'
+        elem: '#id', //需显示日期的元素选择器
+        event: 'click', //触发事件
+        format: 'YYYY-MM-DD hh:mm:ss', //日期格式
+        nil:'', //清空及选择时初始值 如：'请选择开始时间'
+        istime: false, //是否开启时间选择
+        isclear: true, //是否显示清空
+        istoday: true, //是否显示今天
+        issure: true, 是否显示确认
+        festival: true //是否显示节日
+        min: '1900-01-01 00:00:00', //最小日期
+        max: '2099-12-31 23:59:59', //最大日期
+        start: '2014-6-15 23:00:00',    //开始日期
+        fixed: false, //是否固定在可视区域
+        zIndex: 99999999, //css z-index
+        choose: function(dates){ //选择好日期的回调
+
+        }
+    
+二、其它方法/属性
+
+    laydate.v   //获取laydate版本号
+    laydate.skin(lib);  //加载皮肤，参数lib为皮肤名 
+    
+    /*
+        layer.now支持多类型参数。timestamp可以是前后若干天，也可以是一个时间戳。format为日期格式，为空时则采用默认的“-”分割。
+        如laydate.now(-2)将返回前天，laydate.now(3999634079890)将返回2096-09-28
+    */
+    layer.now(timestamp, format);   //该方法提供了丰富的功能，推荐灵活使用。
+    
+    laydate.reset();    //重设日历控件坐标，一般用于页面dom结构改变时。无参
+
+
 ## 更新日志
 
 1.1
