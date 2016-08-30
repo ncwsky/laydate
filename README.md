@@ -47,6 +47,10 @@ skins是皮肤目录
         
         zIndex: 99999999, //css z-index
         
+        clear: function(optioins){ //清空回调 传入些插件的配置
+        
+        },
+        
         choose: function(dates){ //选择好日期的回调
 
         }
