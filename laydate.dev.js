@@ -274,11 +274,11 @@ Dates.check = function(){
     if(value.replace(/\s/g, '') !== ''){
         if(!exp.test(value)){
             Dates.elem[as.elemv] = Dates.options.nil?Dates.options.nil:'';
-            Dates.msg('日期不符合格式，请重新选择。');
+            if(!Dates.options.nil) Dates.msg('日期不符合格式，请重新选择。');
             return 1;
         } else if(isvoid[0]){
             Dates.elem[as.elemv] = Dates.options.nil?Dates.options.nil:'';
-            Dates.msg('日期不在有效期内，请重新选择。');
+            if(!Dates.options.nil) Dates.msg('日期不在有效期内，请重新选择。');
             return 1;
         } else {
             isvoid.value = Dates.elem[as.elemv].match(exp).join();
