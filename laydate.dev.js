@@ -1,11 +1,10 @@
-﻿/**
+/**
  
  @Name : layDate v1.1 日期控件
  @Author: 贤心
- @Date: 2014-06-25
- @QQ群：176047195
+ @Date: 2016-08-30
  @Site：http://sentsin.com/layui/laydate
- 
+ 增加配置项nil 用于清空及选择时的初始值显示
  */
 
 ;!function(win){
@@ -274,11 +273,11 @@ Dates.check = function(){
     var arr = value.match(/\d+/g) || [], isvoid = Dates.checkVoid(arr[0], arr[1], arr[2]);
     if(value.replace(/\s/g, '') !== ''){
         if(!exp.test(value)){
-            Dates.elem[as.elemv] = '';
+            Dates.elem[as.elemv] = Dates.options.nil?Dates.options.nil:'';
             Dates.msg('日期不符合格式，请重新选择。');
             return 1;
         } else if(isvoid[0]){
-            Dates.elem[as.elemv] = '';
+            Dates.elem[as.elemv] = Dates.options.nil?Dates.options.nil:'';
             Dates.msg('日期不在有效期内，请重新选择。');
             return 1;
         } else {
@@ -605,6 +604,7 @@ Dates.view = function(elem, options){
     } else {
         Dates.shde(Dates.box);
     }
+	
     Dates.follow(Dates.box);
     options.zIndex ? Dates.box.style.zIndex = options.zIndex : Dates.removeCssAttr(Dates.box, 'z-index');
     Dates.stopMosup('click', Dates.box);
@@ -752,7 +752,7 @@ Dates.events = function(){
     //清空
     as.oclear = S('#laydate_clear');
     Dates.on(as.oclear, 'click', function(){
-        Dates.elem[as.elemv] = '';
+        Dates.elem[as.elemv] = Dates.options.nil?Dates.options.nil:'';
         Dates.close();
     });
     
